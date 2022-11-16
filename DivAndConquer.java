@@ -14,16 +14,15 @@ public class DivAndConquer {
         distanciasCoordMasCercanas= new ArrayList<>();
     }
 
-    public void run(ArrayList<List<Integer>> coords) {
-        ArrayList<List<Integer>> Lx;
-        ArrayList<List<Integer>> Rx;
+    public void run(ArrayList<Point> coords) {
 
-        ArrayList<List<Integer>> Px;
-        Px = coords;
+        ArrayList<Point> Px = coords;
 
         int tamaño = Px.size();
-        Lx = new ArrayList<>(Px.subList(0, tamaño / 2));
-        Rx = new ArrayList<>(Px.subList(tamaño / 2, tamaño));
+        
+        //las subdivisiones
+        ArrayList<Point> Lx = new ArrayList<>(Px.subList(0, tamaño / 2));
+        ArrayList<Point> Rx = new ArrayList<>(Px.subList(tamaño / 2, tamaño));
 
         //coordenadas creadas para guardar las coordenadas mas cercanas entre cada division
         coordenadaMasCercana1 = new ArrayList<>();
