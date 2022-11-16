@@ -1,21 +1,40 @@
 import java.util.*;
 
 public class ClosestPair{
-
-    long elapsedTime;
-    int operaciones;
     
-    public ClosestPair(){
-        operaciones = 0; 
+    public ClosestPair(){ 
     }
 
-    public void run(int n) {
-        ArrayList<Point> coordenadas = crearCoordenadas(n);
-        coordenadas = sorting(coordenadas);
-        DivAndConquer  algoritmo = new DivAndConquer();
-        algoritmo.run(coordenadas);
-        String line = n + " "+ elapsedTime + " " + operaciones;
-        System.out.println(line);
+    public void run(int expMax) {
+        FileManager fm = new FileManager("pruebas.txt");
+        Timer timer = new Timer();
+        int i = 5;
+        int n = (int) Math.pow(2, i); //para que el n empiece en 2^5
+        do{
+            double time = 0;
+            int comp = 0;
+            int j = 0;
+            int k = 200;
+            while(j < k){
+                ArrayList<Point> coordenadas = crearCoordenadas(n);
+                coordenadas = sorting(coordenadas);
+                DivAndConquer  algoritmo = new DivAndConquer();
+                timer.start();
+                algoritmo.run(coordenadas);
+                timer.stop();
+                time += timer.getTime();
+                comp += n;
+                j++;
+            }
+            time = time / j;
+            comp = comp / j;
+            String line = n + " " + time + " " + comp;
+            System.out.println(line);
+            fm.write(line);
+            n = (int) Math.pow(2, i);
+                i++;
+        }while(n <= Math.pow(2, expMax));
+        fm.close();
     }
     
     /**
@@ -43,7 +62,11 @@ public class ClosestPair{
     
     //Issue #7 -> Improve sorting
     public ArrayList<Point> sorting(ArrayList<Point> coords) {
-        Collections.sort(coords);
+        Collections.sort(coords, new Comparator<Point>(){
+            public int compare(Point p1, Point p2){
+                return Integer.valueOf(p1.getX()).compareTo(p2.getX());
+            }
+        });
         return coords;
     }
 }

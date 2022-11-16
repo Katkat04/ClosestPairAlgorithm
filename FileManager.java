@@ -31,8 +31,13 @@ public class FileManager {
         out.println(line);
     }
 
-    public void close() throws FileNotFoundException{
-        out.close();
+    public void close(){
+        try{
+            out.close();
+        }catch(Exception err){
+            
+        }
+        
     }
 
 }

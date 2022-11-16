@@ -1,9 +1,9 @@
-public class TimeManager {
+public class Timer {
 
     private double startTime;
     private double endTime;
 
-    public TimeManager(){
+    public Timer(){
     }
 
     public void start(){

@@ -2,7 +2,9 @@ import java.util.ArrayList;
 
 public class BrutalForce {
     
-    double distanciaCercana;
+    private Point coordenadaMasCercana1;
+    private Point coordenadaMasCercana2;
+    private double distanciaCercana;
 
     public BrutalForce(){
 
@@ -16,7 +18,6 @@ public class BrutalForce {
         double distanciaCercana = Double.POSITIVE_INFINITY;
         int n = coordenadas.size();
         double distance;
-        Point coordenadaMasCercana1 = null, coordenadaMasCercana2 = null;
 
         for(int i = 0; i <= n-1; i++){
             for(int j = i+1; j <= n-1; j++){
@@ -28,11 +29,6 @@ public class BrutalForce {
                 }
             }
         }
-        System.out.print(coordenadaMasCercana1);
-        System.out.print("  ");
-        System.out.print(coordenadaMasCercana2);
-        System.out.print("  ");
-        System.out.print(distanciaCercana);
     }
 
     /**
@@ -55,6 +51,14 @@ public class BrutalForce {
 
     public double getDistancia(){
         return this.distanciaCercana;
+    }
+
+    public Point getCoord1(){
+        return this.coordenadaMasCercana1;
+    }
+
+    public Point getCoord2(){
+        return this.coordenadaMasCercana2;
     }
 }
 
