@@ -14,7 +14,7 @@ public class BrutalForce {
      * @param coordenadas: lista de coordenadas
      */
     public void run(ArrayList<List<Integer>> coordenadas){
-        double distanciaCercana = 183932839;
+        double distanciaCercana = Double.POSITIVE_INFINITY;
         int n = coordenadas.size();
         double distance;
         List<Integer> coordenadaMasCercana1 = null, coordenadaMasCercana2 = null;
