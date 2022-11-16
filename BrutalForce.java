@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class BrutalForce {
     
@@ -50,7 +49,7 @@ public class BrutalForce {
         int x2 = coord.get(j).getX();
         int y2 = coord.get(j).getY();
 
-        double d = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+        double d = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
         return d;
     }
 
